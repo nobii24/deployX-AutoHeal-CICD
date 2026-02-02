@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>deployX Control Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">🚀 <strong>deployX</strong></div>
+  <nav>
+    <button onclick="showDashboard()">Dashboard</button>
+    <button onclick="showAdmin()">Admin Panel</button>
+  </nav>
+</header>
+
+<!-- USER DASHBOARD -->
+<section id="dashboardView">
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>🐳 Docker</h2>
+      <button onclick="loadDockerImages()">List Images</button>
+      <button onclick="buildDocker()">Build Image</button>
+      <pre id="docker-output" class="output-box"></pre>
+      <select id="imageSelect"></select>
+      <button onclick="deployImage()">Deploy to Kubernetes</button>
+      <button class="danger" onclick="pruneImages()">Prune Images</button>
+    </div>
+
+
+    <div class="card">
+        <h2>☸ Kubernetes</h2>
+        <button type="button" onclick="listPods()">List Pods</button>
+        <button type="button" onclick="deletePod()">Delete Pod</button>
+        <button class="danger" onclick="cleanupFailedPods()">
+          🧠 Auto-Clean Failed Pods
+        </button>
+
+        <div class="output-box pod-box">
+        <pre id="k8s-output"></pre>
+        </div>
+    </div>
+
+
+    <div class="card">
+      <h2>📦 Ansible (CD)</h2>
+      <button type="button" onclick="runAnsible()">Run Deployment</button>
+      <pre id="ansible-output" class="output-box"></pre>
+    </div>
+
+    <div class="card">
+      <h2>🔁 CI / CD</h2>
+      <button type="button" onclick="triggerCI()">CI Only</button>
+      <button type="button" onclick="triggerCICD()">CI + CD</button>
+      <pre id="ci-output" class="output-box"></pre>
+    </div>
+
+  </div>
+
+  <div class="card logs">
+    <h2>📜 System Logs</h2>
+    <button type="button" onclick="loadLogs(event)">Load History</button>
+    <pre id="logsOutput" class="output-box"></pre>
+  </div>
+
+</section>
+
+<!-- ADMIN PANEL -->
+<section id="adminView" style="display:none;">
+
+  <div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <h3>🛡 Admin</h3>
+
+      <input type="password" id="adminKey" placeholder="Admin Key" />
+
+      <button type="button" onclick="adminAllLogs()">📜 All Logs</button>
+      <button type="button" onclick="adminFilter('docker')">🐳 Docker</button>
+      <button type="button" onclick="adminFilter('kubernetes')">☸ Kubernetes</button>
+      <button type="button" onclick="adminFilter('ansible')">📦 Ansible</button>
+      <button type="button" onclick="adminSummary()">📊 Summary</button>
+
+      <button class="danger" type="button" onclick="adminClear()">🗑 Clear Logs</button>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="admin-content">
+      <h2>Audit Logs</h2>
+
+      <div id="adminOutput" class="admin-log-panel">
+        <div class="admin-empty">
+          Select an option to view logs
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+</section>
+
+
+<script src="js/app.js"></script>
+</body>
+</html>

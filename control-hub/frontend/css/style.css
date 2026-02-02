@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f1f5f9;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #0f172a;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar button {
+  margin-left: 10px;
+  background: #2563eb;
+  border-radius: 6px;
+}
+
+/* DASHBOARD */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ✅ FORCE 2 PER ROW */
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.card, .admin-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.logs {
+  margin: 20px;
+  grid-column: 1 / -1; /* ✅ SPANS BOTH COLUMNS */
+}
+
+
+button {
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: #2563eb;
+}
+
+button:hover { background: #1d4ed8; }
+
+.danger {
+  background: #dc2626;
+}
+
+.output-box {
+  background: #e5e7eb;
+  padding: 10px;
+  margin-top: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+/* ADMIN */
+.admin-actions button {
+  margin: 5px;
+}
+
+.pod-box {
+  min-height: 180px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+#docker-output,
+#k8s-output {
+  white-space: pre-wrap;
+  min-height: 160px;
+}
+
+/* ========== ADMIN PANEL ADVANCED UI ========== */
+
+.admin-layout {
+  display: flex;
+  min-height: calc(100vh - 80px);
+}
+
+.admin-sidebar {
+  width: 260px;
+  background: #020617;
+  padding: 20px;
+  color: #e5e7eb;
+}
+
+.admin-sidebar h3 {
+  margin-top: 0;
+  color: #38bdf8;
+}
+
+.admin-sidebar input {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+.admin-sidebar button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #2563eb;
+  border-radius: 6px;
+}
+
+.admin-sidebar button:hover {
+  background: #1d4ed8;
+}
+
+.admin-sidebar .danger {
+  background: #dc2626;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 25px;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.admin-log-panel {
+  background: #020617;
+  border-radius: 10px;
+  padding: 15px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* LOG CARDS */
+.admin-log {
+  background: #020617;
+  border-left: 4px solid #38bdf8;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.admin-log.success { border-color: #22c55e; }
+.admin-log.failed { border-color: #ef4444; }
+
+.admin-log span {
+  display: block;
+  margin: 3px 0;
+  color: #cbd5f5;
+}
+
+.admin-empty {
+  color: #64748b;
+  text-align: center;
+  padding: 40px;
+}
+ .pod-line {
+  padding: 4px 6px;
+  margin-bottom: 2px;
+  font-family: monospace;
+}
+
+.pod-running {
+  background: #e7f9ee;
+  color: #0a7a33;
+}
+
+.pod-pending {
+  background: #fff6e5;
+  color: #9a6a00;
+}
+
+.pod-error {
+  background: #fdeaea;
+  color: #b00020;
+}
+
+.pod-completed {
+  background: #e8f0fe;
+  color: #1a4fd8;
+}
+
+.pod-unknown {
+  background: #eeeeee;
+  color: #555;
+}
